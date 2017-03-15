@@ -14,16 +14,22 @@ def add(a, b):
         b = str(b)
     return a + b
 
-def count(str):
+def count(text):
     """Count words"""
     import collections
     from collections import Counter
 
-    sentence = str.lower()
+    if(type(text) is str):
+        for i in range(len(text)):
+            if not(((ord(text[i]) >= 48) and (ord(text[i]) <= 57)) or ((ord(text[i]) >= 65) and (ord(text[i]) <= 90)) or ((ord(text[i]) >= 97) and (ord(text[i]) <= 122))):
+                text = text.replace(text[i], ' ')
+
+    print(text)
+    sentence = text.lower()
     list = sentence.split()
     count = collections.Counter(list)
 
     return count
 
 if __name__ == "__main__":
-    count("str")
+    count("text")
